@@ -12,14 +12,13 @@ export_on_save:
 #### 2. Exercise 15.4-1 in the text (page 396)(need change)
 * An LCS is h1, 0, 1, 0, 1, 0i. A concise way of seeing this is by noticing that the first list contains a “00” while the second contains none, Also, the second list contains two copies of “11” while the first contains none. In order to reconcile this, any LCS will have to skip at least three elements. Since we managed to do this, we know that our common subsequence was maximal.
 ---
-#### 3. Exercise 3.2 in the Lecture 8 handout (on page 8)(need change).
-* [If T' is an immediate subtree of T then the $depth_T(k_i)=1+depth_{T'}(k_i)$](https://www.youtube.com/watch?v=UayzCmCp06M)
+#### 3. Exercise 3.2 in the Lecture 8 handout (on page 8).
+* Given a left subtree $T^{left}$ of a optimal binary search tree T, and $T^{left}$ were not an optimal binary search tree, then there must be $E(T^{left*})$ has a better search cost than $E(T^{left})$ for a node $k_i$, then $E(T^{left*})=1+\sum_{i=1}^{n}p_idepth_{T^{left*}}(k_i) < E(T^{left})=1+\sum_{i=1}^{n}p_idepth_{T^{left}}(k_i)$, however it will contradict the assumption that T was a optimal binary search tree because $E(T)=1+\sum_{i=1}^{n}p_idepth_T(k_i)$, and $depth_T(k_i)=1+depth_{T^left}(k_i)$, so $depth_{T^left}(k_i)$ must be the smallest. Apply the same proof to the right subtree, it should be the same result. Therefore, If T is an optimal binary search tree and if T' is any subtree of T, then T' is an optimal binary search tree for its nodes.
 ---
 #### 4. Exercise 3.3 in the Lecture 8 handout (on page 10)
 * Given a binary search tree with key {$k_i,...k_j$} and node {$k_r$}, we can find its two subtrees, left subtree with keys {$k_i,...,k_r-1$}, and right tree {$k_r+1,...,k_j$}. If we the left subtree and right subtree cannot form a contiguous sequence on each other then there must be a node $k_x$ for $i\leq x\geq r-1$ in right subtree or a node $k_y$ for $r+1\leq x\geq j$ in left subtree. However, it will contradict the assumption that T was a binary search tree. Therefore, the keys in any subtree can form a contiguous sequence.
 ---
 #### 5. Exercise 15-2 (page 405).Longest palindrome subsequence(need change)
-* Let A[1..n] denote the array which contains the given word. First note that for a palindrome to be a subsequence we must be able to divide the input word at some position i, and then solve the longest common subsequence problem on A[1..i] and A[i + 1..n], possibly adding in an extra letter to account for palindromes with a central letter. Since there are n places at which we could split the input word and the LCS problem takes time O(n2), we can solve the palindrome problem in time O(n3).
 * Algorithm:
 ```
 longest_palindrome(A):
