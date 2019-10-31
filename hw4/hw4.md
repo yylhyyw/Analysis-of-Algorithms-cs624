@@ -10,34 +10,29 @@ export_on_save:
 #### 1. Solve the midterm, see attached pages.
 ---
 #### 2. Exercise 15.4-1 in the text (page 396)(need change)
-* An LCS is h1, 0, 1, 0, 1, 0i. A concise way of seeing this is by noticing that the first list contains a “00” while the second contains none, Also, the second list contains two copies of “11” while the first contains none. In order to reconcile this, any LCS will have to skip at least three elements. Since we managed to do this, we know that our common subsequence was maximal.
+* LCS table: 
+    ![LCS_Table](LCS_table.JPG)
+* result: ⟨1,0,0,1,1,0⟩
 ---
-#### 3. Exercise 3.2 in the Lecture 8 handout (on page 8).
+#### 3. Exercise 3.2 in the Lecture 8 handout.
 * Given a left subtree $T^{left}$ of a optimal binary search tree T, and $T^{left}$ were not an optimal binary search tree, then there must be $E(T^{left*})$ has a better search cost than $E(T^{left})$ for a node $k_i$, then $E(T^{left*})=1+\sum_{i=1}^{n}p_idepth_{T^{left*}}(k_i) < E(T^{left})=1+\sum_{i=1}^{n}p_idepth_{T^{left}}(k_i)$, however it will contradict the assumption that T was a optimal binary search tree because $E(T)=1+\sum_{i=1}^{n}p_idepth_T(k_i)$, and $depth_T(k_i)=1+depth_{T^left}(k_i)$, so $depth_{T^left}(k_i)$ must be the smallest. Apply the same proof to the right subtree, it should be the same result. Therefore, If T is an optimal binary search tree and if T' is any subtree of T, then T' is an optimal binary search tree for its nodes.
 ---
-#### 4. Exercise 3.3 in the Lecture 8 handout (on page 10)
+#### 4. Exercise 3.3 in the Lecture 8 handout.
 * Given a binary search tree with key {$k_i,...k_j$} and node {$k_r$}, we can find its two subtrees, left subtree with keys {$k_i,...,k_r-1$}, and right tree {$k_r+1,...,k_j$}. If we the left subtree and right subtree cannot form a contiguous sequence on each other then there must be a node $k_x$ for $i\leq x\geq r-1$ in right subtree or a node $k_y$ for $r+1\leq x\geq j$ in left subtree. However, it will contradict the assumption that T was a binary search tree. Therefore, the keys in any subtree can form a contiguous sequence.
 ---
-#### 5. Exercise 15-2 (page 405).Longest palindrome subsequence(need change)
+#### 5. Exercise 15-2 (page 405).Longest palindrome subsequence
 * Algorithm:
 ```
-longest_palindrome(A):
-    for i <- 0 to A.length do:
-        length[i][i] = 1
-    end for
-    for i <- 0 to A.length-2 do:
-        if A[i] = A[i+1]
-            visited[i][i+1] = 2
-        else
-            visited[i][i+1] = 1
-        end if
-    end for
-    while A.length >= 3
-        for i <- 0 to (n -3)
-        j = i + length - 1
-        if A[i] == A[j]
-            visited[i][j] = 2 + 
+  longest_palindrome(A):
+    L = A.length
+    for i = 1 to A.length:
+        A'[L] = A[i] A' is the reverse array of A.
+        L = L -1;
+    b = LCS-LENGTH(A, A'); b is the LCS table
+    PRINT-LCS(b. A, i, j)
 ```
+* Accoring to what we learned from the book we know that LCS-LENGTH runs $O(mn)$ times, in this case, $m=n$ so this step takes $O(n^2)$, PRINT-LCS takes $O(m+n)$ times, in this case, this step takes $O(2n)$ times. So, the running time for this algotithm to find longest palindrome subsequence is $O(n^2)$. 
+---
 #### 6.
 * In the drawn graph above, there are edges {($v_1$,$v_2$), ($v_1$,$v_5$), ($v_2$,$v_4$), ($v_2$,$v_5$), ($v_3$,$v_4$), ($v_4$,$v_5$)}. According to the algorithm given, we find edge ($v_1$,$v_2$), and set w to $v_2$, L to $1$, find ($v_2$,$v_4$), set w to $v_4$, L to $2$, find ($v_4$,$v_5$) set w to $v_5$, L to $3$, then there is no edge out from $v_5$, so the longest path is $3$ which is true.
 * In general, there could be a DAG that have edges{($v_1$,$v_2$), ($v_1$,$v_3$), ($v_3$,$v_4$), ($v_4$,$v_5$), ($v_2$,$v_5$)}, in this example, we find the longest path is $2$ that are {($v_1$,$v_2$), ($v_2$,$v_5$)}by using the algorithm above, however, it is wrong, the correct answer is $3$ that are {($v_1$,$v_3$), ($v_3$,$v_4$), ($v_4$, $v_5$)}.
@@ -57,23 +52,26 @@ $LongestPath()$
 The algorithm keep track the max length of path from current vertex to the $v_1$ by storing and updating when we find a edge to the current vertex.
 * It takes n times to initialize the distance value of each vertex at first, and then traversing all the edges that is a path or subpath from $v_1$ to $v_n$ to update the distance of each vertex to $v_1$ which is at most $E$ edges. Therefore, the running time is $O(|V|+|E|)$.
 ---
-#### 7.(need improve)
-* Suppose that a given G was not the MST from $n_{ik}$ to $n_b$ Then there would be a less weight one—let’s call it Q′. But then if we follow the original path from $n_1$ to $n_ik$ and then switch to the path Q′ from nik to nb, the total cost of all the edges on that path will be less than the cost of the original path P. And that is a contradiction because we assumed that P had the least cost of any path from $n_a$ to $n_b$.
+#### 7.
+* Suppose that a given G was not the MST from $n_{ik}$ to $n_b$ Then there would be a less weight Q′. But then if we follow the original path from $n_1$ to $n_{ik}$ and then switch to the path Q′ from $n_{ik}$ to $n_b$, the total cost of all the edges on that path will be less than the cost of the original path P. And that is a contradiction because we assumed that P had the least cost of any path from $n_1$ to $n_b$.
 * Assume that there is an MST T that does not contain e. Adding e to T will produce a cycle, that crosses the cut once at e and crosses back at another edge e' . Deleting e' we get a spanning tree T∖{e'}∪{e} of strictly smaller weight than T. This contradicts the assumption that T was a MST. 
-* A lightest edge in graph G must be the lightest edge in some cuts of the graph G. According we have proved in the previous problem we know that the lightest edge must be a part of MST of graph G. 
-#### 8.(first draft)
-* If A is a maximum independent subset of tree T containing x, then A' = A-{x} is an independent subset of T' = T - {x}. Let's assume if A' is not the maximum independent subset of tree T', then it is a contradiction because if we add back {x}, then the maximum independent set will be larger than A.
-* Let 𝐼 be a maximum-cardinality independent set containing the greatest number of leaves of 𝑇 of all such independent sets. Suppose that 𝑣∉𝐼 for some leaf 𝑣 of 𝑇 and let 𝑤 be 𝑣's unique neighbour. If 𝑤∉𝐼, then 𝐼∪{𝑣} is independent, contradicting the supposed maximality of 𝐼. Otherwise, 𝑤∈𝐼 but 𝐼′=(𝐼∖{𝑤})∪{𝑣} is an independent set of the same cardinality as 𝐼. Since 𝑇 has at least three vertices, 𝑤 has degree at least two, so is not a leaf. Therefore, 𝐼′ contains one more leaf than 𝐼, again contradicting the choice of 𝐼.
+* Suppose that $T$ is a MST that does contain a edge $E$ that $E$ is minimal edge from $a$ to $b$ in a cut, then we can find a new path $P$ from $a$ to $b$ instead $E$ that can form a MST. In this case, the path $P$ must have less cost than edge $E'$, however, it is a contradiction that according to the property of a cut that $E$ is the minmal edge in the cut and the weight of path $P$ must bigger than the edge $E$. Therefore, the lightest edge crossing the cut is a part of a minimum spanning tree.
+* Suppose that $T$ is a MST that does contain a edge $E$ that $E$ is minimal edge from $a$ to $b$, then we can find a new path $P$ from $a$ to $b$ instead $E$ that can form a MST. However, it is a contradiction that $E$ is the lighest edge from $a$ to $b$, and the weight of $P$ must bigger than $E$.
+---
+#### 8.
+* If $A$ is a maximum independent subset of tree $T$ containing $x$, then $A'$ is an independent subset excludes $x$ of $T'$ is subtree of $T$ excludes $x$. Assume $A'$ was not the maximum independent subset of tree T', then there must be a $A^*$ that is bigger than $A'$. However, it is a contradiction because if we add back $x$, then the maximum independent set will be larger than $A$.
+* Let $A$ be a maximum independent set not containing all leaves of tree $𝑇$. Assume that $l\notin A$ for some leaf $l$ of 𝑇 and $v$ for its neighbor, If $v\notin A$, then 𝐼∪{𝑣} is independent, contradicting that $A$ is the maximum independent set. If $v\in A$, there is independent set $A^′=(𝐼-v)\cup {w}$ is an independent set same as $A$, however it is a contradict that when $T$ has two vertice the maximum independent set can be $l$ or $v$ and the size of it is one, when $T$ has more than two vertice, $v$ must have at least two degrees, so $A'$ cannot be the maximum independent set. Therefore, any leaf node v in a tree must be a part of a maximum size independent set.
 * Algorithm:
 ```
-1: I = ∅, V 0 = V
-2: while V' != ∅ do
-3:  Choose v ∈ V'(in lexicographically order)
-4:  I = I ∪ v
-5:  V' = V'\(v ∪ Neighbor(v)
-6: end while
-7: Return I
+max_independent_set(G): 
+    while G is not empty:
+        find the minimum node v with minimum degree
+        push v into M. M is a list to store max independent set.
+        remove v and its neighbors from G.
+    end while
+    return M.
 ```
+* the algorithm goes over all nodes to find the node with minimum degree, then goes |V|- (neignbors of v + v) times to find the next minimum degree nodes. So the running time will be |V| + |V|- (neignbors of v + v) + |V|- (neignbors of v + v)-(neignbors of v' + v')+.... which should less than 2n. Therefore, the running time should be $O(n)$ and it is linear.
 <div style="page-break-after: always;"></div>
 
 ### Midterm Exam 1 
