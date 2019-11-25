@@ -1,0 +1,1075 @@
+<!DOCTYPE html><html><head>
+      <title>hw6</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  font-family: Courier;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h3 class="mume-header" id="cs624">CS624</h3>
+
+<h3 class="mume-header" id="assignment-6">Assignment 6</h3>
+
+<h3 class="mume-header" id="prof-nurit-haspel">Prof. Nurit Haspel</h3>
+
+<h3 class="mume-header" id="yiwei-yao">Yiwei Yao</h3>
+
+<hr>
+<h4 class="mume-header" id="1">1.</h4>
+
+<ul>
+<li>Prove by induction on a connected graph G:</li>
+<li>Base case:<br>
+When there is only <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> node in G, then BFS algorithm will begin at the only node and terminates at the same node since there is no child node. Therefore, the BFS tree will be a single node tree contains only one node which is true.</li>
+<li>Inductive hypothesis:<br>
+Assume algorithem <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>F</mi><mi>S</mi><mo stretchy="false">(</mo><mi>G</mi><mo separator="true">,</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">BFS(G,s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault">G</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span> will create a BFS tree contains all nodes on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> nodes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>k</mi><mo>&#x2265;</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(k\geq1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2265;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>.</li>
+<li>Induction:
+<ul>
+<li>To proof:<br>
+In order to prove question, we have to show that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>F</mi><mi>S</mi><mo stretchy="false">(</mo><msup><mi>G</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup><mo separator="true">,</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">BFS(G&apos;,s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span> will create a BFS tree contains all nodes where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">G&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> is a graph with adding a new node to graph <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span>.<br>
+Suppose <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">V&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>E</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">E&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span>is the nodes set and edge sets of graph <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">G&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span> is the original nodes set from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span>, then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup><mo>=</mo><mi>V</mi><mo>+</mo><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">V&apos;=V+v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the new node added to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">G&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>E</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup><mo>=</mo><mi>E</mi><mo>+</mo><mo stretchy="false">{</mo></mrow><annotation encoding="application/x-tex">E&apos;= E+\{</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span></span></span></span>edges that connect <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and the nodes in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> which should at least <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> since <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">G&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> is a connected graph<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">}</span></span></span></span>. If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the first node the algorithm visited, then there must be <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub><mo>&#x2208;</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">v_i\in V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> connects to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, so we push <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> into queue and mark <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>d</mi><mi>g</mi><mi>e</mi><mo stretchy="false">(</mo><msub><mi>v</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>v</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">edge(v_n,v_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> as a &quot;tree edge&quot;. Because we already mark <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> as black, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">v_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> will not be pushed into queue again which means there will be loop in the final graph, what&apos;s more, since we assume that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> can create a BFS tree that contains all nodes by running BFS algorithm, we have showed that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">G&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> will generate a BFS tree contains all nodes by BFS algorithm.</li>
+</ul>
+</li>
+</ul>
+<h4 class="mume-header" id="2">2.</h4>
+
+<ul>
+<li>
+<p>The value of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>&#x3C0;</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">&#x3C0;</span></span></span></span> from runing breadth-first search on the directed graph of Figure 22.2(a).</p>
+<table>
+<thead>
+<tr>
+<th>node</th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span></th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>&#x3C0;</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">&#x3C0;</span></span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">&#x221E;</mi></mrow><annotation encoding="application/x-tex">\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord">&#x221E;</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">&#x2205;</mi></mrow><annotation encoding="application/x-tex">\empty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">&#x2205;</span></span></span></span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">&#x2205;</mi></mrow><annotation encoding="application/x-tex">\empty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">&#x2205;</span></span></span></span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>BFS on Figure 22.2(a) starting from vertex 3<br>
+(a)&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;(b)</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="465pt" height="133pt" viewBox="0.00 0.00 465.00 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-128.8 461,-128.8 461,4 -4,4"/>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="34" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="28.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="3.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#000000" cx="106" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="100.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="75.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#000000" d="M61,-90C63.6147,-90 66.2295,-90 68.8442,-90"/>
+<polygon fill="#000000" stroke="#000000" points="68.9297,-93.5001 78.9297,-90 68.9297,-86.5001 68.9297,-93.5001"/>
+</g>
+<!-- 4 -->
+<g id="node7" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#000000" cx="34" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="28.75" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="3.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 1&#45;&gt;4 -->
+<g id="edge2" class="edge">
+<title>1-&gt;4</title>
+<path fill="none" stroke="#000000" d="M34,-71.8314C34,-64.131 34,-54.9743 34,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="37.5001,-46.4132 34,-36.4133 30.5001,-46.4133 37.5001,-46.4132"/>
+</g>
+<!-- 5 -->
+<g id="node8" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#000000" cx="106" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="100.75" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="75.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- 2&#45;&gt;5 -->
+<g id="edge4" class="edge">
+<title>2-&gt;5</title>
+<path fill="none" stroke="#000000" d="M106,-71.8314C106,-64.131 106,-54.9743 106,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="109.5001,-46.4132 106,-36.4133 102.5001,-46.4133 109.5001,-46.4132"/>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="#c0c0c0" stroke="#000000" cx="178" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="178" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">0</text>
+<text text-anchor="middle" x="147.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g id="edge6" class="edge">
+<title>3-&gt;5</title>
+<path fill="none" stroke="#000000" d="M162.7307,-74.7307C152.803,-64.803 139.6847,-51.6847 128.5637,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="130.7933,-37.8436 121.2473,-33.2473 125.8436,-42.7933 130.7933,-37.8436"/>
+</g>
+<!-- 6 -->
+<g id="node9" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="#000000" cx="178" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="172.75" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="147.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- 3&#45;&gt;6 -->
+<g id="edge7" class="edge">
+<title>3-&gt;6</title>
+<path fill="none" stroke="#000000" d="M178,-71.8314C178,-64.131 178,-54.9743 178,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="181.5001,-46.4132 178,-36.4133 174.5001,-46.4133 181.5001,-46.4132"/>
+</g>
+<!-- 7 -->
+<g id="node4" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="#000000" cx="268" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="262.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="237.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 8 -->
+<g id="node5" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="#000000" cx="340" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="334.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="309.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 7&#45;&gt;8 -->
+<g id="edge9" class="edge">
+<title>7-&gt;8</title>
+<path fill="none" stroke="#000000" d="M295,-90C297.6147,-90 300.2295,-90 302.8442,-90"/>
+<polygon fill="#000000" stroke="#000000" points="302.9297,-93.5001 312.9297,-90 302.9297,-86.5001 302.9297,-93.5001"/>
+</g>
+<!-- 10 -->
+<g id="node10" class="node">
+<title>10</title>
+<ellipse fill="none" stroke="#000000" cx="268" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="262.75" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="237.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 7&#45;&gt;10 -->
+<g id="edge10" class="edge">
+<title>7-&gt;10</title>
+<path fill="none" stroke="#000000" d="M268,-71.8314C268,-64.131 268,-54.9743 268,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="271.5001,-46.4132 268,-36.4133 264.5001,-46.4133 271.5001,-46.4132"/>
+</g>
+<!-- 11 -->
+<g id="node11" class="node">
+<title>11</title>
+<ellipse fill="#c0c0c0" stroke="#000000" cx="340" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="340" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+<text text-anchor="middle" x="309.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- 8&#45;&gt;11 -->
+<g id="edge12" class="edge">
+<title>8-&gt;11</title>
+<path fill="none" stroke="#000000" d="M340,-71.8314C340,-64.131 340,-54.9743 340,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="343.5001,-46.4132 340,-36.4133 336.5001,-46.4133 343.5001,-46.4132"/>
+</g>
+<!-- 9 -->
+<g id="node6" class="node">
+<title>9</title>
+<ellipse fill="#000000" stroke="#000000" cx="412" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="408.5" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+<text text-anchor="middle" x="381.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 9&#45;&gt;11 -->
+<g id="edge14" class="edge">
+<title>9-&gt;11</title>
+<path fill="none" stroke="#000000" d="M396.7307,-74.7307C386.803,-64.803 373.6847,-51.6847 362.5637,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="364.7933,-37.8436 355.2473,-33.2473 359.8436,-42.7933 364.7933,-37.8436"/>
+</g>
+<!-- 12 -->
+<g id="node12" class="node">
+<title>12</title>
+<ellipse fill="#c0c0c0" stroke="#000000" cx="412" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="412" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+<text text-anchor="middle" x="381.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- 9&#45;&gt;12 -->
+<g id="edge15" class="edge">
+<title>9-&gt;12</title>
+<path fill="none" stroke="#000000" d="M412,-71.8314C412,-64.131 412,-54.9743 412,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="415.5001,-46.4132 412,-36.4133 408.5001,-46.4133 415.5001,-46.4132"/>
+</g>
+<!-- 4&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>4-&gt;2</title>
+<path fill="none" stroke="#000000" d="M49.2473,-33.2473C59.1703,-43.1703 72.2877,-56.2877 83.4117,-67.4117"/>
+<polygon fill="#000000" stroke="#000000" points="81.1847,-70.1344 90.7307,-74.7307 86.1344,-65.1847 81.1847,-70.1344"/>
+</g>
+<!-- 5&#45;&gt;4 -->
+<g id="edge5" class="edge">
+<title>5-&gt;4</title>
+<path fill="none" stroke="#000000" d="M78.9297,-18C76.3149,-18 73.7002,-18 71.0854,-18"/>
+<polygon fill="#000000" stroke="#000000" points="71,-14.5001 61,-18 71,-21.5001 71,-14.5001"/>
+</g>
+<!-- 6&#45;&gt;6 -->
+<g id="edge8" class="edge">
+<title>6-&gt;6</title>
+<path fill="none" stroke="#000000" d="M197.895,-30.4321C210.688,-33.6753 223,-29.5313 223,-18 223,-9.6218 216.5006,-5.1433 208.0395,-4.5644"/>
+<polygon fill="#000000" stroke="#000000" points="207.5019,-1.1004 197.895,-5.5679 208.191,-8.0665 207.5019,-1.1004"/>
+</g>
+<!-- 10&#45;&gt;8 -->
+<g id="edge11" class="edge">
+<title>10-&gt;8</title>
+<path fill="none" stroke="#000000" d="M283.2473,-33.2473C293.1703,-43.1703 306.2877,-56.2877 317.4117,-67.4117"/>
+<polygon fill="#000000" stroke="#000000" points="315.1847,-70.1344 324.7307,-74.7307 320.1344,-65.1847 315.1847,-70.1344"/>
+</g>
+<!-- 11&#45;&gt;10 -->
+<g id="edge13" class="edge">
+<title>11-&gt;10</title>
+<path fill="none" stroke="#000000" d="M312.9297,-18C310.3149,-18 307.7002,-18 305.0854,-18"/>
+<polygon fill="#000000" stroke="#000000" points="305,-14.5001 295,-18 305,-21.5001 305,-14.5001"/>
+</g>
+<!-- 12&#45;&gt;12 -->
+<g id="edge16" class="edge">
+<title>12-&gt;12</title>
+<path fill="none" stroke="#000000" d="M431.895,-30.4321C444.688,-33.6753 457,-29.5313 457,-18 457,-9.6218 450.5006,-5.1433 442.0395,-4.5644"/>
+<polygon fill="#000000" stroke="#000000" points="441.5019,-1.1004 431.895,-5.5679 442.191,-8.0665 441.5019,-1.1004"/>
+</g>
+</g>
+</svg>
+</p><p>(c)&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;(d)</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: %0 Pages: 1 -->
+<svg width="465pt" height="133pt" viewBox="0.00 0.00 465.00 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-128.8 461,-128.8 461,4 -4,4"/>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="34" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="28.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="3.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#000000" cx="106" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="100.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="75.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#000000" d="M61,-90C63.6147,-90 66.2295,-90 68.8442,-90"/>
+<polygon fill="#000000" stroke="#000000" points="68.9297,-93.5001 78.9297,-90 68.9297,-86.5001 68.9297,-93.5001"/>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#000000" cx="34" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="28.75" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="3.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 1&#45;&gt;4 -->
+<g id="edge2" class="edge">
+<title>1-&gt;4</title>
+<path fill="none" stroke="#000000" d="M34,-71.8314C34,-64.131 34,-54.9743 34,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="37.5001,-46.4132 34,-36.4133 30.5001,-46.4133 37.5001,-46.4132"/>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="#c0c0c0" stroke="#000000" cx="106" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="106" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+<text text-anchor="middle" x="75.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- 2&#45;&gt;5 -->
+<g id="edge4" class="edge">
+<title>2-&gt;5</title>
+<path fill="none" stroke="#000000" d="M106,-71.8314C106,-64.131 106,-54.9743 106,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="109.5001,-46.4132 106,-36.4133 102.5001,-46.4133 109.5001,-46.4132"/>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="#000000" stroke="#000000" cx="178" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="174.5" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+<text text-anchor="middle" x="147.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g id="edge6" class="edge">
+<title>3-&gt;5</title>
+<path fill="none" stroke="#000000" d="M162.7307,-74.7307C152.803,-64.803 139.6847,-51.6847 128.5637,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="130.7933,-37.8436 121.2473,-33.2473 125.8436,-42.7933 130.7933,-37.8436"/>
+</g>
+<!-- 6 -->
+<g id="node6" class="node">
+<title>6</title>
+<ellipse fill="#000000" stroke="#000000" cx="178" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="174.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="147.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- 3&#45;&gt;6 -->
+<g id="edge7" class="edge">
+<title>3-&gt;6</title>
+<path fill="none" stroke="#000000" d="M178,-71.8314C178,-64.131 178,-54.9743 178,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="181.5001,-46.4132 178,-36.4133 174.5001,-46.4133 181.5001,-46.4132"/>
+</g>
+<!-- 4&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>4-&gt;2</title>
+<path fill="none" stroke="#000000" d="M49.2473,-33.2473C59.1703,-43.1703 72.2877,-56.2877 83.4117,-67.4117"/>
+<polygon fill="#000000" stroke="#000000" points="81.1847,-70.1344 90.7307,-74.7307 86.1344,-65.1847 81.1847,-70.1344"/>
+</g>
+<!-- 5&#45;&gt;4 -->
+<g id="edge5" class="edge">
+<title>5-&gt;4</title>
+<path fill="none" stroke="#000000" d="M78.9297,-18C76.3149,-18 73.7002,-18 71.0854,-18"/>
+<polygon fill="#000000" stroke="#000000" points="71,-14.5001 61,-18 71,-21.5001 71,-14.5001"/>
+</g>
+<!-- 6&#45;&gt;6 -->
+<g id="edge8" class="edge">
+<title>6-&gt;6</title>
+<path fill="none" stroke="#000000" d="M197.895,-30.4321C210.688,-33.6753 223,-29.5313 223,-18 223,-9.6218 216.5006,-5.1433 208.0395,-4.5644"/>
+<polygon fill="#000000" stroke="#000000" points="207.5019,-1.1004 197.895,-5.5679 208.191,-8.0665 207.5019,-1.1004"/>
+</g>
+<!-- 7 -->
+<g id="node7" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="#000000" cx="268" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="262.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="237.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 8 -->
+<g id="node8" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="#000000" cx="340" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="334.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="309.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 7&#45;&gt;8 -->
+<g id="edge9" class="edge">
+<title>7-&gt;8</title>
+<path fill="none" stroke="#000000" d="M295,-90C297.6147,-90 300.2295,-90 302.8442,-90"/>
+<polygon fill="#000000" stroke="#000000" points="302.9297,-93.5001 312.9297,-90 302.9297,-86.5001 302.9297,-93.5001"/>
+</g>
+<!-- 10 -->
+<g id="node10" class="node">
+<title>10</title>
+<ellipse fill="#c0c0c0" stroke="#000000" cx="268" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="268" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+<text text-anchor="middle" x="237.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 7&#45;&gt;10 -->
+<g id="edge10" class="edge">
+<title>7-&gt;10</title>
+<path fill="none" stroke="#000000" d="M268,-71.8314C268,-64.131 268,-54.9743 268,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="271.5001,-46.4132 268,-36.4133 264.5001,-46.4133 271.5001,-46.4132"/>
+</g>
+<!-- 11 -->
+<g id="node11" class="node">
+<title>11</title>
+<ellipse fill="#000000" stroke="#000000" cx="340" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="336.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="309.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- 8&#45;&gt;11 -->
+<g id="edge12" class="edge">
+<title>8-&gt;11</title>
+<path fill="none" stroke="#000000" d="M340,-71.8314C340,-64.131 340,-54.9743 340,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="343.5001,-46.4132 340,-36.4133 336.5001,-46.4133 343.5001,-46.4132"/>
+</g>
+<!-- 9 -->
+<g id="node9" class="node">
+<title>9</title>
+<ellipse fill="#000000" stroke="#000000" cx="412" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="408.5" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+<text text-anchor="middle" x="381.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 9&#45;&gt;11 -->
+<g id="edge14" class="edge">
+<title>9-&gt;11</title>
+<path fill="none" stroke="#000000" d="M396.7307,-74.7307C386.803,-64.803 373.6847,-51.6847 362.5637,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="364.7933,-37.8436 355.2473,-33.2473 359.8436,-42.7933 364.7933,-37.8436"/>
+</g>
+<!-- 12 -->
+<g id="node12" class="node">
+<title>12</title>
+<ellipse fill="#000000" stroke="#000000" cx="412" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="408.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="381.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- 9&#45;&gt;12 -->
+<g id="edge15" class="edge">
+<title>9-&gt;12</title>
+<path fill="none" stroke="#000000" d="M412,-71.8314C412,-64.131 412,-54.9743 412,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="415.5001,-46.4132 412,-36.4133 408.5001,-46.4133 415.5001,-46.4132"/>
+</g>
+<!-- 10&#45;&gt;8 -->
+<g id="edge11" class="edge">
+<title>10-&gt;8</title>
+<path fill="none" stroke="#000000" d="M283.2473,-33.2473C293.1703,-43.1703 306.2877,-56.2877 317.4117,-67.4117"/>
+<polygon fill="#000000" stroke="#000000" points="315.1847,-70.1344 324.7307,-74.7307 320.1344,-65.1847 315.1847,-70.1344"/>
+</g>
+<!-- 11&#45;&gt;10 -->
+<g id="edge13" class="edge">
+<title>11-&gt;10</title>
+<path fill="none" stroke="#000000" d="M312.9297,-18C310.3149,-18 307.7002,-18 305.0854,-18"/>
+<polygon fill="#000000" stroke="#000000" points="305,-14.5001 295,-18 305,-21.5001 305,-14.5001"/>
+</g>
+<!-- 12&#45;&gt;12 -->
+<g id="edge16" class="edge">
+<title>12-&gt;12</title>
+<path fill="none" stroke="#000000" d="M431.895,-30.4321C444.688,-33.6753 457,-29.5313 457,-18 457,-9.6218 450.5006,-5.1433 442.0395,-4.5644"/>
+<polygon fill="#000000" stroke="#000000" points="441.5019,-1.1004 431.895,-5.5679 442.191,-8.0665 441.5019,-1.1004"/>
+</g>
+</g>
+</svg>
+</p><p>(e)&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;(f)</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: %0 Pages: 1 -->
+<svg width="465pt" height="133pt" viewBox="0.00 0.00 465.00 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-128.8 461,-128.8 461,4 -4,4"/>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="34" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="28.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="3.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="#c0c0c0" stroke="#000000" cx="106" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="106" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+<text text-anchor="middle" x="75.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#000000" d="M61,-90C63.6147,-90 66.2295,-90 68.8442,-90"/>
+<polygon fill="#000000" stroke="#000000" points="68.9297,-93.5001 78.9297,-90 68.9297,-86.5001 68.9297,-93.5001"/>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="#000000" stroke="#000000" cx="34" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="30.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+<text text-anchor="middle" x="3.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 1&#45;&gt;4 -->
+<g id="edge2" class="edge">
+<title>1-&gt;4</title>
+<path fill="none" stroke="#000000" d="M34,-71.8314C34,-64.131 34,-54.9743 34,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="37.5001,-46.4132 34,-36.4133 30.5001,-46.4133 37.5001,-46.4132"/>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="#000000" stroke="#000000" cx="106" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="102.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="75.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- 2&#45;&gt;5 -->
+<g id="edge4" class="edge">
+<title>2-&gt;5</title>
+<path fill="none" stroke="#000000" d="M106,-71.8314C106,-64.131 106,-54.9743 106,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="109.5001,-46.4132 106,-36.4133 102.5001,-46.4133 109.5001,-46.4132"/>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="#000000" stroke="#000000" cx="178" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="174.5" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+<text text-anchor="middle" x="147.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g id="edge6" class="edge">
+<title>3-&gt;5</title>
+<path fill="none" stroke="#000000" d="M162.7307,-74.7307C152.803,-64.803 139.6847,-51.6847 128.5637,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="130.7933,-37.8436 121.2473,-33.2473 125.8436,-42.7933 130.7933,-37.8436"/>
+</g>
+<!-- 6 -->
+<g id="node6" class="node">
+<title>6</title>
+<ellipse fill="#000000" stroke="#000000" cx="178" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="174.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="147.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- 3&#45;&gt;6 -->
+<g id="edge7" class="edge">
+<title>3-&gt;6</title>
+<path fill="none" stroke="#000000" d="M178,-71.8314C178,-64.131 178,-54.9743 178,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="181.5001,-46.4132 178,-36.4133 174.5001,-46.4133 181.5001,-46.4132"/>
+</g>
+<!-- 4&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>4-&gt;2</title>
+<path fill="none" stroke="#000000" d="M49.2473,-33.2473C59.1703,-43.1703 72.2877,-56.2877 83.4117,-67.4117"/>
+<polygon fill="#000000" stroke="#000000" points="81.1847,-70.1344 90.7307,-74.7307 86.1344,-65.1847 81.1847,-70.1344"/>
+</g>
+<!-- 5&#45;&gt;4 -->
+<g id="edge5" class="edge">
+<title>5-&gt;4</title>
+<path fill="none" stroke="#000000" d="M78.9297,-18C76.3149,-18 73.7002,-18 71.0854,-18"/>
+<polygon fill="#000000" stroke="#000000" points="71,-14.5001 61,-18 71,-21.5001 71,-14.5001"/>
+</g>
+<!-- 6&#45;&gt;6 -->
+<g id="edge8" class="edge">
+<title>6-&gt;6</title>
+<path fill="none" stroke="#000000" d="M197.895,-30.4321C210.688,-33.6753 223,-29.5313 223,-18 223,-9.6218 216.5006,-5.1433 208.0395,-4.5644"/>
+<polygon fill="#000000" stroke="#000000" points="207.5019,-1.1004 197.895,-5.5679 208.191,-8.0665 207.5019,-1.1004"/>
+</g>
+<!-- 7 -->
+<g id="node7" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="#000000" cx="268" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="262.75" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x221E;</text>
+<text text-anchor="middle" x="237.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 8 -->
+<g id="node8" class="node">
+<title>8</title>
+<ellipse fill="#000000" stroke="#000000" cx="340" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="336.5" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+<text text-anchor="middle" x="309.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 7&#45;&gt;8 -->
+<g id="edge9" class="edge">
+<title>7-&gt;8</title>
+<path fill="none" stroke="#000000" d="M295,-90C297.6147,-90 300.2295,-90 302.8442,-90"/>
+<polygon fill="#000000" stroke="#000000" points="302.9297,-93.5001 312.9297,-90 302.9297,-86.5001 302.9297,-93.5001"/>
+</g>
+<!-- 10 -->
+<g id="node10" class="node">
+<title>10</title>
+<ellipse fill="#000000" stroke="#000000" cx="268" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="264.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+<text text-anchor="middle" x="237.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 7&#45;&gt;10 -->
+<g id="edge10" class="edge">
+<title>7-&gt;10</title>
+<path fill="none" stroke="#000000" d="M268,-71.8314C268,-64.131 268,-54.9743 268,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="271.5001,-46.4132 268,-36.4133 264.5001,-46.4133 271.5001,-46.4132"/>
+</g>
+<!-- 11 -->
+<g id="node11" class="node">
+<title>11</title>
+<ellipse fill="#000000" stroke="#000000" cx="340" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="336.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="309.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- 8&#45;&gt;11 -->
+<g id="edge12" class="edge">
+<title>8-&gt;11</title>
+<path fill="none" stroke="#000000" d="M340,-71.8314C340,-64.131 340,-54.9743 340,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="343.5001,-46.4132 340,-36.4133 336.5001,-46.4133 343.5001,-46.4132"/>
+</g>
+<!-- 9 -->
+<g id="node9" class="node">
+<title>9</title>
+<ellipse fill="#000000" stroke="#000000" cx="412" cy="-90" rx="27" ry="18"/>
+<text text-anchor="start" x="408.5" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+<text text-anchor="middle" x="381.5" y="-112.2" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 9&#45;&gt;11 -->
+<g id="edge14" class="edge">
+<title>9-&gt;11</title>
+<path fill="none" stroke="#000000" d="M396.7307,-74.7307C386.803,-64.803 373.6847,-51.6847 362.5637,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="364.7933,-37.8436 355.2473,-33.2473 359.8436,-42.7933 364.7933,-37.8436"/>
+</g>
+<!-- 12 -->
+<g id="node12" class="node">
+<title>12</title>
+<ellipse fill="#000000" stroke="#000000" cx="412" cy="-18" rx="27" ry="18"/>
+<text text-anchor="start" x="408.5" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+<text text-anchor="middle" x="381.5" y="-40.2" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- 9&#45;&gt;12 -->
+<g id="edge15" class="edge">
+<title>9-&gt;12</title>
+<path fill="none" stroke="#000000" d="M412,-71.8314C412,-64.131 412,-54.9743 412,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="415.5001,-46.4132 412,-36.4133 408.5001,-46.4133 415.5001,-46.4132"/>
+</g>
+<!-- 10&#45;&gt;8 -->
+<g id="edge11" class="edge">
+<title>10-&gt;8</title>
+<path fill="none" stroke="#000000" d="M283.2473,-33.2473C293.1703,-43.1703 306.2877,-56.2877 317.4117,-67.4117"/>
+<polygon fill="#000000" stroke="#000000" points="315.1847,-70.1344 324.7307,-74.7307 320.1344,-65.1847 315.1847,-70.1344"/>
+</g>
+<!-- 11&#45;&gt;10 -->
+<g id="edge13" class="edge">
+<title>11-&gt;10</title>
+<path fill="none" stroke="#000000" d="M312.9297,-18C310.3149,-18 307.7002,-18 305.0854,-18"/>
+<polygon fill="#000000" stroke="#000000" points="305,-14.5001 295,-18 305,-21.5001 305,-14.5001"/>
+</g>
+<!-- 12&#45;&gt;12 -->
+<g id="edge16" class="edge">
+<title>12-&gt;12</title>
+<path fill="none" stroke="#000000" d="M431.895,-30.4321C444.688,-33.6753 457,-29.5313 457,-18 457,-9.6218 450.5006,-5.1433 442.0395,-4.5644"/>
+<polygon fill="#000000" stroke="#000000" points="441.5019,-1.1004 431.895,-5.5679 442.191,-8.0665 441.5019,-1.1004"/>
+</g>
+</g>
+</svg>
+</p></li>
+</ul>
+<h4 class="mume-header" id="3">3.</h4>
+
+<ul>
+<li>According to the Theorem 1.6 in the lecture note 12 that If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> is connected, then the breadth-first search tree gives the shortest path from the root to any node, we know that whatever order of a vertex <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> appear in a adjacency list, the value of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mi mathvariant="normal">.</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">u.d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">u</span><span class="mord">.</span><span class="mord mathdefault">d</span></span></span></span> will not change afterall.</li>
+<li>On the other hand, the breadth-first tree computed by BFS can depend on the ordering within adjacency lists. In the figure 22.3, after the step that find the adjacency vertices of w, if we choose node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> to traveral first then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mi mathvariant="normal">.</mi><mi>&#x3C0;</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">u.\pi=x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03588em;">&#x3C0;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> which is different to figure 22.3 which has <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mi mathvariant="normal">.</mi><mi>&#x3C0;</mi><mo>=</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">u.\pi=t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03588em;">&#x3C0;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>.</li>
+</ul>
+<h4 class="mume-header" id="4">4.</h4>
+
+<ul>
+<li>According to the definition of a full binary tree, assume <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span> has n nodes and each node has two children except leaves. The number of nodes in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span> are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>, number of nodes with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> children are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">n_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, leaves are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub></mrow><annotation encoding="application/x-tex">n_l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li>Base case:<br>
+when <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> which is a binary tree with only root. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">l=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>x</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n_x=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>. It is true that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mo>&#x2212;</mo><mn>1</mn><mo>=</mo><msub><mi>n</mi><mi>x</mi></msub><mo>=</mo><mo>&gt;</mo><mn>1</mn><mo>&#x2212;</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">l-1=n_x=&gt;1-1=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></li>
+<li>Inductive hypothesis:<br>
+For any full binary tree with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>x</mi></msub><mo>&#x2264;</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n_x\leq k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2264;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>, then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub><mo>=</mo><msub><mi>n</mi><mi>x</mi></msub><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_l=n_x-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.</li>
+<li>Induction :
+<ul>
+<li>To proof:<br>
+In order to prove question, we have to show that for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub><mo>=</mo><msub><mi>n</mi><mi>x</mi></msub><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_l=n_x-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>First case: suppose a full binary tree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">T&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n&apos;=k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> and has only left subtree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>T</mi><mi>l</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">T_l&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.035em;vertical-align:-0.2831079999999999em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831079999999999em;"><span></span></span></span></span></span></span></span></span></span>, in this case, the nodes with two children <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>n</mi><mi>x</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">n_{x}&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">T&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> equals to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> since the root of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">T&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> is neither a internal node with two childern or a leaf, using the inductive hypothesis, we have showed that for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub><mo>=</mo><msub><mi>n</mi><mi>x</mi></msub><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_l=n_x-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.</li>
+<li>Second case: suppose a full binary tree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">T&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n&apos;=k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> and has only right subtree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>T</mi><mi>r</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">T_r&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.998892em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4530000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>, using the same method in the first case, we can prove it.</li>
+<li>Third case: suppose a full binary tree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">T&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n&apos;=k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> and has both non-empty left subtree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>T</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">T_{left}&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span></span></span></span> and right subtree <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>T</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">T_{right}&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span></span></span></span>. In this case, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub><mo>=</mo><msub><mi>n</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mo>&#x2212;</mo><mi>l</mi></mrow></msub><mo>+</mo><msub><mi>n</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>&#x2212;</mo><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">n_l=n_{left-l}+n_{right-l}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>x</mi></msub><mo>=</mo><msubsup><mi>n</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mo>&#x2212;</mo><mi>x</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>+</mo><msubsup><mi>n</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>&#x2212;</mo><mi>x</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>+</mo><mn>1</mn><mo stretchy="false">(</mo><mi>r</mi><mi>o</mi><mi>o</mi><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n_x=n_{left-x}&apos;+n_{right-x}&apos;+1(root)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span> since the root of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msup></mrow><annotation encoding="application/x-tex">T&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span></span></span></span></span></span></span></span> must have two degrees. Because <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>n</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">n_{left}&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>n</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup></mrow><annotation encoding="application/x-tex">n_{right}&apos;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span></span></span></span> must less than <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>, using the inductive hypothesis, we know that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>n</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mo>&#x2212;</mo><mi>l</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>=</mo><msubsup><mi>n</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mo>&#x2212;</mo><mi>x</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_{left-l}&apos; = n_{left-x}&apos;+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>n</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>&#x2212;</mo><mi>l</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>=</mo><msubsup><mi>n</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>&#x2212;</mo><mi>x</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_{right-l}&apos; = n_{right-x}&apos;+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>. Thus, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>l</mi></msub><mo>=</mo><msubsup><mi>n</mi><mi>l</mi><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>=</mo><msubsup><mi>n</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mo>&#x2212;</mo><mi>x</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>+</mo><mn>1</mn><mo>+</mo><msubsup><mi>n</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>&#x2212;</mo><mi>x</mi></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">&#x2032;</mo></msubsup><mo>+</mo><mn>1</mn><mo>=</mo><msub><mi>n</mi><mi>x</mi></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_l=n_l&apos;=n_{left-x}&apos;+1+n_{right-x}&apos;+1=n_x+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.035em;vertical-align:-0.2831079999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831079999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1711079999999998em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">&#x2212;</span><span class="mord mathdefault mtight">x</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">&#x2032;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> which is also true.</li>
+</ul>
+</li>
+</ul>
+<h4 class="mume-header" id="5">5.</h4>
+
+<ul>
+<li>parenthesis structure of the depth-first search of Figure 22.4 is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">(</mo><mi>x</mi><mi>x</mi><mo stretchy="false">)</mo><mi>y</mi><mo stretchy="false">)</mo><mi>v</mi><mo stretchy="false">)</mo><mi>u</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">(</mo><mi>z</mi><mi>z</mi><mo stretchy="false">)</mo><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(u(v(y(xx)y)v)u)(w(zz)w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">u</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mord mathdefault">u</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<h4 class="mume-header" id="6">6.</h4>
+
+<ul>
+<li>counter example:<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: %0 Pages: 1 -->
+<svg width="134pt" height="116pt" viewBox="0.00 0.00 134.00 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-112 130,-112 130,4 -4,4"/>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#000000" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#000000" d="M21.0843,-72.2022C20.2798,-64.1807 20.0571,-54.5231 20.4162,-45.5957"/>
+<polygon fill="#000000" stroke="#000000" points="23.9097,-45.8099 21.105,-35.593 16.9262,-45.3289 23.9097,-45.8099"/>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 1&#45;&gt;3 -->
+<g id="edge3" class="edge">
+<title>1-&gt;3</title>
+<path fill="none" stroke="#000000" d="M42.2693,-74.7307C52.197,-64.803 65.3153,-51.6847 76.4363,-40.5637"/>
+<polygon fill="#000000" stroke="#000000" points="79.1564,-42.7933 83.7527,-33.2473 74.2067,-37.8436 79.1564,-42.7933"/>
+</g>
+<!-- 2&#45;&gt;1 -->
+<g id="edge2" class="edge">
+<title>2-&gt;1</title>
+<path fill="none" stroke="#000000" d="M32.895,-35.593C33.7094,-43.5865 33.942,-53.2363 33.5928,-62.1759"/>
+<polygon fill="#000000" stroke="#000000" points="30.0976,-61.9891 32.9157,-72.2022 37.0817,-62.4608 30.0976,-61.9891"/>
+</g>
+</g>
+</svg>
+</p></li>
+<li>In this example, DFS algorithm starts from node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.</mn><mi>d</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1.d=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>. Then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.</mn><mi>d</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2.d=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>, after finished node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>, algorithm go to node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>, and set node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3.</mn><mi>d</mi></mrow><annotation encoding="application/x-tex">3.d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">.</span><span class="mord mathdefault">d</span></span></span></span> equals to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> and finished it then return to node<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> and finished the DFS algorithm. we can see in this example that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3.</mn><mi>d</mi><mo>&#x2264;</mo><mn>2.</mn><mi>d</mi></mrow><annotation encoding="application/x-tex">3.d\le 2.d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord">3</span><span class="mord">.</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2264;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord mathdefault">d</span></span></span></span> but node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> is not the descendant of node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>.</li>
+</ul>
+<h4 class="mume-header" id="7">7.</h4>
+
+<ul>
+<li>When we do a DFS on a directed tree and starts from one of the leaves, there will be end up a depth-first tree contains only one of the internal nodes, which have both income and outcome edges.</li>
+<li>For example:<br>
+Tree T:</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: %0 Pages: 1 -->
+<svg width="134pt" height="188pt" viewBox="0.00 0.00 134.00 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-184 130,-184 130,4 -4,4"/>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="63" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="63" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#000000" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#000000" d="M54.2854,-144.5708C50.0403,-136.0807 44.8464,-125.6929 40.1337,-116.2674"/>
+<polygon fill="#000000" stroke="#000000" points="43.237,-114.6477 35.6343,-107.2687 36.976,-117.7782 43.237,-114.6477"/>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- 1&#45;&gt;3 -->
+<g id="edge2" class="edge">
+<title>1-&gt;3</title>
+<path fill="none" stroke="#000000" d="M71.7146,-144.5708C75.9597,-136.0807 81.1536,-125.6929 85.8663,-116.2674"/>
+<polygon fill="#000000" stroke="#000000" points="89.024,-117.7782 90.3657,-107.2687 82.763,-114.6477 89.024,-117.7782"/>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- 3&#45;&gt;4 -->
+<g id="edge3" class="edge">
+<title>3-&gt;4</title>
+<path fill="none" stroke="#000000" d="M99,-71.8314C99,-64.131 99,-54.9743 99,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="102.5001,-46.4132 99,-36.4133 95.5001,-46.4133 102.5001,-46.4132"/>
+</g>
+</g>
+</svg>
+</p><p>In the previous tree, we starts from the leaf node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>, then there will be a DFS tree only cotains node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>, and node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> have both income and outcome edges.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
