@@ -8,9 +8,9 @@ export_on_save:
 ### Yiwei Yao
 ---
 #### 1.
-* According to the huffman algorithm, each time we insert a node which repesents the two elements with the lowest frequency in the minimal queue. Let the case that the huffman has the maximal height if the maximal height is greater or equal to $n-1$ then we can find a huffman tree with n nodes whose height is n-1. If we want to generate a huffman tree with the maximal height, the new node that we insert into the queue must be the minimal one always such that we can append the new node onto the existed node with higest height. We inital a huffman tree with $0$ height first, then after each iteration, the height increase by one. at the end after $n-1$ time iterations, we got the maximal height $n-1$. Therefore, there exists a Huffman tree with n nodes whose height is $n-1$.
+* According to the Huffman algorithm, each time we insert a node which represents the two elements with the lowest frequency in the minimal queue. In order to solve the question, let the Huffman tree has the maximal height, if the maximal height is greater or equal to $n-1$ then we can find a Huffman tree with n nodes whose height is n-1. If we want to generate a Huffman tree with the maximal height, the new node that we insert into the queue must be the minimal one always such that we can append the new node onto the existed node with the highest height. We init a Huffman tree with $0$ height first, then after each iteration, the height increase by one since we continually append the new node onto the existed node with the highest node. at the end, after $n-1$ time iterations, we got the maximal height $n-1$. Therefore, there exists a Huffman tree with n nodes whose height is $n-1$.
 #### 2.
-* Assume a prefix code tree $T$ of the given set $C$ contains an internal node $x$ with $1$ child, in other words, the node $x$ has only left subtree or right subtree $st$ with height $\geq 0$ and the subset $S$. $$AC(T)=\sum_{x\in (C-S)}f(x)*d_T(x)+\sum_{x\in S}f(x)*d_T(x)$$ If we replace the internal node $x$ with its left subtree or right subtree $st$ to construct a new tree $T'$, the only change is $d_{T'}(x) = d_T(x)-1$ since we remove the node $x$ and it will have no influence to other things.$$AC(T')=\sum_{x\in (C-S)}f(x)*d_T'(x)+\sum_{x\in S}f(x)*d_T'(x)$$ Since $d_T'(x)<d_T(x)$, $AC(T)<AC(T')$. Therefore, we have showed that if a tree representing a prefix code contains an internal node with 1 child, then there is a tree with a more efficient prefix code.
+* Assume a prefix code tree $T$ of the given set $C$ contains an internal node $x$ with $1$ child, in other words, the node $x$ has only left subtree or right subtree $st$ with height $\geq 0$ and the subset $S$ of $C$. $$AC(T)=\sum_{x\in (C-S)}f(x)*d_T(x)+\sum_{x\in S}f(x)*d_T(x)$$ If we replace the internal node $x$ with its left subtree or right subtree $st$ to construct a new tree $T'$, the only change is $d_{T'}(x) = d_T(x)-1$ since we remove the node $x$ and it will have no influence to other things.$$AC(T')=\sum_{x\in (C-S)}f(x)*d_T'(x)+\sum_{x\in S}f(x)*d_T'(x)$$ Since $d_T'(x)<d_T(x)$, $AC(T)<AC(T')$. Therefore, we have showed that if a tree representing a prefix code contains an internal node with 1 child, then there is a tree with a more efficient prefix code.
 #### 3.
 * Exercise 10.1-6. Algorithm: Given two stack $S1$ and $S2$
     ```
@@ -21,7 +21,7 @@ export_on_save:
     ```
     DEQUEUE():
         if(S2.length == 0):
-            for i ← S1.length to 1 do:
+            for i <- S1.length to 1 do:
                 PUSH(S2, S1.pop())
             end for
         end if
