@@ -129,3 +129,107 @@ export_on_save:
     * Suppose an independent set of vertices $V_2$ in an undirected graph $G=(V,E)$, since $V_2$ is an independent set, for any pair of vertices in independent set are not in the edge $E$ but in edge $E'$. Therefore, since all vertices in $V_2$ are connected in $G^c=(V,E')$, they form a clique in $G'$.
     * On the other hand, suppose a clique in $G^c=(V,E')$, $c=(u,v)\in E'$ which means $(u,v)\notin E$, therefore they form an independent set $V_2$ in $G=(V,E)$.
     * Both statements in $2$ can polynomially reducible to each other which means they are equally hard.
+#### 6. Midterm 2
+* Medians and Order Statistics:
+    * algorithm:
+        ```
+        findMedianOfTwoArray(A, B):
+            if sizeof(A) equals 2 and sizeof(B) equals 2:
+                return (max(A[1], B[1])+min(A[2], B[2]))/2
+            end if
+            median_A = A[sizeof(A)/2]
+            median_B = B[sizeof(B)/2]
+            if median_A equals median_B:
+                return median_A or median_B
+            end if
+            else if median_A is greater than median_B:
+                new_A = A[1....sizeof(A)/2]
+                new_B = B[sizeof(B)/2.....n]
+                findMedianOfTwoArray(new_A, new_B)
+            end if
+            else if median_A is less than median_B:
+                new_A = A[sizeof(A)/2.....n]
+                new_B = B[1......sizeof(B)/2]
+                findMedianOfTwoArray(new_A, new_B)
+            end if
+        ```
+    * Running time:
+        In the case of median of A and median of B are different, the algorithm divides the total length of 2 arrays into half until there are only two elements in the array of A and B. Therefore, assume the sum of numbers of two arrays are n, we can generate a recurrence $T(n)=T(n/2)+T(1)$, using master theorem, $T(n)=O(logn)$
+* Binary Search Trees:
+  * (a)
+    * algorithm:
+        ```
+        sort(A):
+            for i <- 1 to n:
+                Insert(A[i])
+            end for
+            M = Minimum(A)
+            print M
+            for i <- 2 to n:
+                print successor(A,m)
+            end for 
+        ```
+    * In my algorithm, it runs Insert for n times, Minimum 1 time, and successor n-1 times. In total, $cost = nlogn + logn + (n-1)logn$. Thus, this sort operation takes O(logn) time.
+  * (b)
+    * Assume $b_n$ is the left subtree of a binary tree with n nodes, then it must have k nodes with in $\{0\leq k\leq n-1\}$, then in the right subtree of this binary tree has nodes $n-k-1$ nodes where $1$ for root. then the possible of this binary tree is $b_k*b_{n-k-1}$. Sum up all possibles we can get the equation $b_n=\sum^{n-1}_{k=0}b_kb_{n-1-k}$
+* Dynamic Programming:
+    * (a)
+      for 2 nodes:
+      ```dot{style="zoom:0.5"}
+              graph G{
+                  1[label= 1]
+                  2[label= 2]
+                  3[label= 1]
+                  4[label= 2]
+                  1 -- 2
+                  4 -- 3
+              }
+      ```
+      for 3 nodes:
+      ```dot{style="zoom:0.5"}
+              graph G{
+                  1[label= 1]
+                  2[label= 2]
+                  3[label= 3]
+                  4[label= 1]
+                  5[label= 2]
+                  6[label= 3]
+                  7[label= 1]
+                  8[label= 2]
+                  9[label= 3]
+                  10[label= 1]
+                  11[label= 2]
+                  12[label= 3]
+                  13[label= 1]
+                  14[label= 2]
+                  15[label= 3]
+                  1 -- 2 -- 3
+                  5 -- 4
+                  5 -- 6
+                  9 -- 8 -- 7
+                  10 -- 12 -- 11
+                  15 -- 13 --14
+              }
+      ```
+    * (b):
+        | n   | 1 | 2 | 3 | 4  |
+        |-----|---|---|---|----|
+        | $b_n$ | 1 | 2 | 5 | 14 |
+    * (c):
+        * algorithm:
+            ```
+            DP[0] = 1
+            findNumOfBinaryTree(n):
+                if DP[n] is set:
+                    return DP[n]
+                else:
+                    for i <- 0 to n-1:
+                        DP[n] += findNumOfBinaryTree(i) * findNumOfBinaryTree(n-1-i)
+                    end for
+                end if
+            ```
+        * Run Time:
+            The findNumOfBinaryTree function runs for loop for n times and each time calls findNumOfBinaryTree function of input i and findNumOfBinaryTree function of input n-1-i. Thus, the algorithm runs $n*(i+(n-1-i))$ times which are $O(n^2)$ times.
+* Greedy Algorithm:
+    * (a) Let's say $S$ is an optimal solution, Given that a station $s$ is part of $S$. Then there is a station $a$ that covered more parts of road intervals than $s$, then we can find a solution $A$ that covers all stations and even covers more. However, it is a contradiction that $S$ is an optimal solution. Thus there isn't a case that a station $a$ can cover more than station $s$.
+    * (b) Because western most house $a$ must be covered, there must be an interval in out set that contains the first station $s$ that puts at the $4$ miles to the western most house. Thus, the internal $[a, a+4]$. Otherwise we replace with $[a-4, a]$, the house $a$ still covered, but we moved the first internal to the right. So it must cover everything cover before and even more. Applying this argument to the rest of the intervals. We can prove that this greedy algorithm gives the optimal solution.
